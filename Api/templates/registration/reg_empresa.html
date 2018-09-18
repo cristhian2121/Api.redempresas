@@ -1,0 +1,294 @@
+{% comment %} {% extends 'api/base.html' %} {% endcomment %}
+{% load static %}
+{% load i18n %}
+
+
+{% block content %}
+<hr>
+<hr>
+
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <!--Inicio formulario-->  
+
+  <input type="submit" />
+    <input type="hidden" name="next" value="{{ next }}"/>
+
+</form>
+
+
+
+{% endblock %}
+
+
+
+
+
+{% comment %} {% block content %}
+<hr>
+<hr>
+
+<form method="POST" enctype="multipart/form-data" class="post-form ">
+  {% csrf_token %}
+  {{ form.as_p }}
+ 
+  
+
+<!--Inicio formulario-->
+<div class="container">
+
+  <div class="row">
+      <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+  
+        <h2> Registre su empresa<small></small></h2>
+        <hr>
+
+        <h2><small>Información general</small></h2>
+        <hr>
+            <!--Nombre empresa-->
+            <div class="form-group">
+              <label class="control-label" for="nombre">Nombre de la empresa</label>  
+              <input id="nombre" name="nombre" type="text" placeholder="Ingrese el nombre de la empresa" class="form-control input-lg" required="">
+            </div>
+            
+            <!--nit/rut-->
+            <div class="form-group">
+              <label class="control-label" for="nit_emp">NIT/RUT</label>  
+              <input id="nit_emp" name="nit" type="text" placeholder="NIT o RUT de la empresa" class="form-control input-lg">
+            </div>
+
+
+            <div class="row">
+              <!-- departamento -->
+              <div class="col-xs-3 col-sm-3 col-md-3">
+                  <div class="form-group" >
+                    <label class="control-label" for="dep_emp">Departamento</label>
+                    <select id="dep_emp" name="departamento" class="form-control input-md">
+                      <option value="1">Departamento</option>
+                      <option value="2">Option two</option>
+                    </select>
+                  </div>
+                </div>
+
+              <!-- ciudad -->
+              <div class="col-xs-3 col-sm-3 col-md-3">
+                <div class="form-group">
+                  <label class="control-label" for="ciudad_emp">Ciudad</label>
+                  <select id="ciudad_emp" name="ciudad" class="form-control input-md">
+                    <option value="1">Option one</option>
+                    <option value="2">Option two</option>
+                  </select>
+                </div>
+              </div>
+              
+              <!-- dirección-->
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <label class="control-label" for="dir_emp">Dirección</label>  
+                  <input id="dir_emp" name="direccion" type="text" placeholder="Dirección" class="form-control input-lg">
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="row">
+              <!-- Teléfono-->
+              <div class="col-xs-3 col-sm-3 col-md-3">
+                <div class="form-group">
+                  <label class="control-label" for="tel_emp">Teléfono</label>  
+                  <input id="tel_emp" name="telefono" type="text" placeholder="Teléfono" class="form-control input-lg">
+                </div>
+              </div>
+
+              <!-- ciudad -->
+              <div class="col-xs-3 col-sm-3 col-md-3">
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="cel_emp">Celular</label>  
+                  <input id="cel_emp" name="celular" type="text" placeholder="celular" class="form-control input-lg">
+                </div>
+              </div>
+                
+              <!-- Email-->
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <label class="control-label" for="email_emp">Celular</label>  
+                  <input id="email_emp" name="email" type="text" placeholder="Email" class="form-control input-lg">
+                </div>
+              </div>
+            </div>
+            <br>
+            <hr>            
+            
+            
+            <!--sección-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="tipo">¿En que sección desea aparecer?</label>
+              <div class="col-md-8">
+                <select id="tipo" name="tipo" class="form-control" multiple="multiple">
+                  <option value="1">Restaurante</option>
+                  <option value="2">Hotel</option>
+                </select>
+              </div>
+            </div>
+           
+
+            <h2><small>Sobre nosotros</small></h2>
+            <hr>
+            <!--lema-->
+            <div class="form-group">
+              <label class="control-label" for="lema">Lema</label> 
+              <textarea class="form-control input-lg" id="lema" name="lema" placeholder="Escriba aquí el lema de la empresa"></textarea>
+            </div>
+
+
+            <div class="row">
+              <!-- Misión-->
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <label class="control-label" for="mision">Misión</label>
+                  <textarea class="form-control input-lg" id="mision" name="mision" placeholder="Escriba aquí la misión de la empresa"></textarea>
+                  </textarea>
+                </div>
+              </div>
+
+              <!-- Visión -->
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <label class=" control-label" for="vision">Visión</label>
+                  <textarea class="form-control input-lg" id="vision" name="vision" placeholder="Escriba aquí la visión de la empresa"></textarea>
+                </div>
+              </div>
+            </div>
+            <br>
+
+            <!--Logo-->
+            <div class="form-group">
+              <label class="col-md-2 control-label" for="logo">Logo</label>
+              <div class="col-md-10">
+                <input id="logo" name="logo" type="file" class="input-file input-lg">
+              </div>
+            </div>
+            
+            <br>
+            <!-- Servicios-->
+            <h2><small>Servicios</small></h2>
+            <hr>
+
+            
+            <!-- numero servicios -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="num_ser">¿Cuántos más servicios ofrece?</label>
+              <div class="col-md-8"> 
+                <label class="radio-inline" for="num_ser-0">
+                  <input type="radio" name="num_ser" id="num_ser-0" value="1" checked="checked">
+                  1
+                </label> 
+                <label class="radio-inline" for="num_ser-1">
+                  <input type="radio" name="num_ser" id="num_ser-1" value="2">
+                  2
+                </label> 
+                <label class="radio-inline" for="num_ser-2">
+                  <input type="radio" name="num_ser" id="num_ser-2" value="3">
+                  3
+                </label> 
+                <label class="radio-inline" for="num_ser-3">
+                  <input type="radio" name="num_ser" id="num_ser-3" value="4">
+                  4
+                </label>
+              </div>
+            </div>
+            <br>
+            <br> 
+            <br> 
+            
+
+            <div class="row">
+              <!-- nombre-->
+              <div class="col-xs-4 col-sm-4 col-md-4">
+                <div class="form-group">
+                  <label class="control-label" for="ser1">Nombre servicio 1</label>
+                  <input id="ser1" name="nombre_ser_1" type="text" placeholder="Nombre" class="form-control input-lg" required="">
+                </div>
+              </div>
+
+              <!-- servicio -->
+              <div class="col-xs-8 col-sm-8 col-md-8">
+                <div class="form-group">
+                  <label class=" control-label" for="ser1_det">Servicio 1</label>
+                  <textarea class="form-control input-lg" id="ser1_det" name="ser_1" placeholder="Describa su primer servicio"></textarea>
+                </div>
+              </div>
+            </div>
+            
+            <hr>
+  
+            
+            <!--Registro-->
+        
+              <!-- Button (Double) -->      
+        
+            
+            
+
+        
+        <div class="row">
+          <div class="col-xs-3 col-sm-3 col-md-3">
+            <span class="button-checkbox">
+              <button type="button" class="btn" data-color="info" tabindex="7">I Agree</button>
+                <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
+            </span>
+          </div>
+          <div class="col-xs-9 col-sm-9 col-md-9">
+             By clicking <strong class="label label-primary">Register</strong>, you agree to the <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms and Conditions</a> set out by this site, including our Cookie Use.
+          </div>
+        </div>
+        <hr>
+
+    
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="buttonatras1id"></label>
+          <div class="col-md-8">
+            <button id="buttonatras1id" name="buttonatras1id" class="btn btn-info">Atras</button>
+            <button id="continuar" name="continuar" class="btn btn-success">Continuar registro</button>
+          </div>
+        </div>
+        <br>
+        <br>
+
+      <button type="submit" class="save btn btn-default">Guardar</button>
+
+        
+        
+      </form>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="t_and_c_m" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title" id="myModalLabel">Terms & Conditions</h4>
+        </div>
+        <div class="modal-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">I Agree</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+  </div>
+</div>
+  
+{% endblock %} {% endcomment %}
+    

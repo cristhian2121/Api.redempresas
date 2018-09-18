@@ -1,0 +1,19 @@
+<!--{% extends 'Api/base.html' %}-->
+{% load i18n %}
+
+{% block redes %}
+<li><a href="#" class="fa fa-whatsapp" style="font-size:19px"></a></li>
+<li><a href="#" class="fa fa-facebook-square" style="font-size:19px"></a></li>
+<li><a href="#" class="glyphicon glyphicon-envelope" style="font-size:17px"></a></li>
+<li><a href="#" class="glyphicon glyphicon-earphone" style="font-size:17px"></a></li>
+<li><a href="{% url 'auth_logout' %}"><span class="glyphicon glyphicon-log-out" style="font-size:17px"></span> Salir</a></li>
+{% endblock %}
+
+
+{% block contain %}
+<li><a href="{% url 'auth_logout' %}"><span class="glyphicon glyphicon-log-out" style="font-size:17px"></span> Salir</a></li>
+<div>
+    <h1>Descarga Tu factura</h1>
+</div>
+<div class="space"></div>
+{% endblock %}
